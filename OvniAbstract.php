@@ -1,6 +1,6 @@
 <?php
 
-abstract class Ovni
+abstract class OvniAbstract
 {
     protected $alphabet;
 
