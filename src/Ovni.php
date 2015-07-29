@@ -11,15 +11,15 @@ class Ovni extends OvniAbstract
     {
         $matchGroups = [];
 
-        foreach ($this->comet as $comet) {
-            foreach ($this->group as $group) {
-                if ($this->groupMatchesComet($group, $comet)) {
-                    $matchGroups[$group] = $group;
+        foreach ($this->comet as $kc => $comet) {
+            foreach ($this->group as $kg => $group) {
+                if ($kc == $kg && $this->groupMatchesComet($group, $comet)) {
+                    $matchGroups[] = $group;
                 }
             }
         }
 
-        return array_intersect($matchGroups, $this->group);
+        return array_values(array_diff($this->group, $matchGroups));
     }
 
     /**
@@ -28,13 +28,13 @@ class Ovni extends OvniAbstract
      */
     private function getWordAsNumber($word)
     {
-        $sum = 0;
+        $number = 1;
 
         for ($i = 0; $i < strlen($word); $i++) {
-            $sum += array_search($word{$i}, $this->alphabet);
+            $number = array_search($word{$i}, $this->alphabet) * $number;
         }
 
-        return $sum;
+        return $number;
     }
 
     /**
@@ -44,6 +44,6 @@ class Ovni extends OvniAbstract
      */
     private function groupMatchesComet($group, $comet)
     {
-        return ($this->getWordAsNumber($group) / $this->magicNumber) === ($this->getWordAsNumber($comet) / $this->magicNumber);
+        return ($this->getWordAsNumber($group) % $this->magicNumber) === ($this->getWordAsNumber($comet) % $this->magicNumber);
     }
 }
