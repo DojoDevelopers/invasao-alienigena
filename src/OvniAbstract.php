@@ -1,11 +1,20 @@
-<?php
+<?php namespace Dojo;
 
 abstract class OvniAbstract
 {
+    /**
+     * @var array
+     */
     protected $alphabet;
 
+    /**
+     * @var array
+     */
     protected $comet;
 
+    /**
+     * @var array
+     */
     protected $group;
 
     public function __construct()
@@ -31,6 +40,6 @@ abstract class OvniAbstract
         ];
     }
 
-    abstract protected function sort();
+    abstract public function sort();
 }
 
