@@ -31,6 +31,6 @@ abstract class OvniAbstract
         ];
     }
 
-    abstract protected function sort($alphabet, $comet, $group);
+    abstract protected function sort();
 }
 
