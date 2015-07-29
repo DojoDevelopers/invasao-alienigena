@@ -6,13 +6,13 @@ Dado o algoritimo, extendo a classe OvniAbstract, o desenvolvedor deve CRIAR UMA
 
 #### O método deve retornar um ARRAY com os grupos que NÃO serão levados.
 
-###Positivos
+####Positivos
 ------------------------------
 Voltou o dojo +++
 Desafio +++
 
 
-###Negativos
+####Negativos
 ------------------------------
 Não entendmos o problema +
 Falta de comprometimento +++
