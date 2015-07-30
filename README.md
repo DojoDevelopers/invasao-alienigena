@@ -1,21 +1,25 @@
 # invasao-alienigena
 
-### Algoritimo se encontra em algo/algo.png
+### Algoritimo
+
+![Desafio](https://raw.githubusercontent.com/DojoDevelopers/invasao-alienigena/master/algo/algo.png)
 
 Dado o algoritimo, extendo a classe OvniAbstract, o desenvolvedor deve CRIAR UMA BRANCH COM SEU NOME e implemenntar sua lógica.
 
 #### O método deve retornar um ARRAY com os grupos que NÃO serão levados.
 
-####Positivos
+####Positivos :+1:
 ------------------------------
-Voltou o dojo +++
-Desafio +++
+
+- Voltou o dojo +++
+- Desafio +++
 
 
-####Negativos
+####Negativos :-1:
 ------------------------------
-Não entendmos o problema +
-Falta de comprometimento +++
+
+- Não entendmos o problema +
+- Falta de comprometimento +++
 
 
 MC: Mangi
