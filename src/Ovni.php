@@ -6,42 +6,41 @@ class Ovni extends OvniAbstract
 {
 	public function sort()
 	{
-		$arrayRetorno = $this->group;
+		$arrayNaoLevados = array();
 
-		foreach ($this->comet as $keyCometa => $cometa) {
-			$produtoCometa = $this->getProdutoByName($cometa) % 45;
-			
-			foreach ($this->group as $key => $grupo) {
-				$produtoGrupo = $this->getProdutoByName($grupo) % 45;
-				// se o grupo foi levado alguma vez ele nao deve ser retornado
-				if ($keyCometa == $key && $produtoCometa == $produtoGrupo
-					//&& isset($arrayRetorno[$key])
-					){
-					//echo sprintf("Para o cometa %s o grupo %s foi levado\n", $cometa, $grupo);
-					unset($arrayRetorno[$key]);
-				} else {
-					//echo sprintf("Para o cometa %s o grupo %s NAO foi levado\n", $cometa, $grupo);
-				}
-		
-			} 
+		for ($i=0; $i < count($this->comet); $i++) {
+			$cometa = $this->processaCometasGrupos($this->comet[$i]);
+			$grupo = $this->processaCometasGrupos($this->group[$i]);
+
+
+			if ($cometa != $grupo) {
+				$arrayNaoLevados[] = $this->group[$i];
+
+			}
+
 		}
 
-		return $arrayRetorno;
+		return $arrayNaoLevados;
+	
 	}
-
-	public function getProdutoByName($name)
+	
+	protected function processaCometasGrupos($cometaGrupo, $mod=45)
 	{
-		$produto = 1;
-		for ($i = 0; $i < strlen($name); $i++) {
-			$produto = $produto * $this->getNumeroDaLetra($name[$i]);
+
+		if (empty($cometaGrupo) || !preg_match('/[A-Za-z]+/', $cometaGrupo) || !is_numeric($mod)) {
+			return 0;
+
+		 }
+
+		$multiplicacao = 1;
+
+		for ($i=0; $i<strlen($cometaGrupo);$i++) {
+			$multiplicacao *= (ord($cometaGrupo[$i]) - ord('A') + 1);
+
 		}
-	
-	
-		return $produto;
-	}
 
-	public function getNumeroDaLetra($letra)
-	{
-		return array_search(mb_strtoupper($letra), $this->alphabet);
-	}
+		return $multiplicacao % $mod;
+
+ 	}
+
 }
