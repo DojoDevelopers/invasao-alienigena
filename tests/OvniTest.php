@@ -38,26 +38,8 @@ class OvniTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($group, $this->ovni->group);
 	}
 
-	public function testValidarProdutoDoNome()
-	{
-		$expected = 30240;
-		$this->assertEquals($expected, $this->ovni->getProdutoByName("LARANJA"));
-	}
-
-	public function testGetNumeroDaLetra()
-	{
-		$expected = 1;
-		$this->assertEquals($expected, $this->ovni->getNumeroDaLetra('A'));
-
-		$expected = 26;
-		$this->assertEquals($expected, $this->ovni->getNumeroDaLetra('Z'));
-
-		$expected = 1;
-		$this->assertEquals($expected, $this->ovni->getNumeroDaLetra('a'));
-	}
-
 	public function testSort()
 	{
-		$this->assertEquals([1 => 'VERMELHO'], $this->ovni->sort());
+		$this->assertEquals([0 => 'VERMELHO'], $this->ovni->sort());
 	}
 }
